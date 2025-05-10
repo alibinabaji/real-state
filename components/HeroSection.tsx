@@ -1,22 +1,38 @@
-// components/HeroSection.tsx
-
 "use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const [typedText, setTypedText] = useState("");
+  const [prefix, setPrefix] = useState("");
+  const [highlighted, setHighlighted] = useState("");
+  const [suffix, setSuffix] = useState("");
 
-  const fullText =
-    "با سرمایه‌گذاری در محدوده پول خود، مثلاً یک متر مربع از خانه‌ای که دوست دارید را بخرید.";
+  const prefixText = "با سرمایه‌گذاری در محدوده پول خود، مثلاً یک ";
+  const highlightedText = "متر مربع";
+  const suffixText = " از خانه‌ای که دوست دارید را بخرید.";
 
-  // انیمیشن تایپینگ برای متن زیرعنوان
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      if (index < fullText.length) {
-        setTypedText(fullText.substring(0, index + 1));
+      if (index < prefixText.length) {
+        setPrefix(prefixText.substring(0, index + 1));
+        index++;
+      } else if (index < prefixText.length + highlightedText.length) {
+        setHighlighted(
+          highlightedText.substring(0, index - prefixText.length + 1)
+        );
+        index++;
+      } else if (
+        index <
+        prefixText.length + highlightedText.length + suffixText.length
+      ) {
+        setSuffix(
+          suffixText.substring(
+            0,
+            index - prefixText.length - highlightedText.length + 1
+          )
+        );
         index++;
       } else {
         clearInterval(interval);
@@ -34,22 +50,21 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-blue-600 text-white py-20 overflow-hidden">
-      {/* Overlay */}
+    <section className="relative bg-[#2cc49b] text-white py-20 overflow-hidden">
       <div className="absolute inset-0 bg-black opacity-10 z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* سمت چپ - متن با انیمیشن */}
           <div className="md:w-1/2 text-right space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fade-in-down">
               همین امروز شروع کنید، صاحب خانه شوید!
             </h1>
-            <p
-              className="text-lg md:text-xl text-blue-100 font-medium animate-fade-in"
-              style={{ whiteSpace: "pre-wrap" }}
-            >
-              {typedText}
+            <p className="text-lg md:text-xl text-blue-100 font-medium animate-fade-in">
+              {prefix}
+              <span className="font-extrabold text-yellow-400 text-[30px]">
+                {highlighted}
+              </span>
+              {suffix}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-end">
               <button
@@ -67,7 +82,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* سمت راست - تصویر ثابت یا نمودار */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <div className="relative w-[300px] h-[250px] md:w-[400px] md:h-[300px] rounded-xl overflow-hidden shadow-2xl transform rotate-2 transition-transform hover:rotate-0 duration-500">
               <Image
@@ -82,7 +96,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* دکمه‌های انیمیشنی پایین (اختیاری) */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 space-x-reverse">
         <a href="#how-it-works" className="animate-bounce">
           <svg

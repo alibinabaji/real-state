@@ -99,7 +99,7 @@ export default function InvestmentOpportunities() {
                 </h3>
                 <div className="mb-3">
                   <span className="text-sm text-gray-500">حداقل سرمایه:</span>
-                  <p className="font-medium text-blue-600">
+                  <p className="font-medium text-[#2cc49b]">
                     {project.minInvest}
                   </p>
                 </div>
@@ -107,7 +107,7 @@ export default function InvestmentOpportunities() {
                 <div className="mb-3">
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <div
-                      className="bg-blue-600 h-2.5 rounded-full"
+                      className="bg-[#2cc49b] h-2.5 rounded-full"
                       style={{ width: `${project.progress}%` }}
                     ></div>
                   </div>

@@ -5,25 +5,25 @@ export default function HowItWorks() {
     {
       title: "ثبت‌نام و احراز هویت",
       description: "اولین قدم ثبت‌نام و تکمیل اطلاعات هویتی شماست.",
-      icon: <FaUser className="w-8 h-8 text-blue-600" />,
+      icon: <FaUser className="w-8 h-8 text-[#2cc49b]" />,
     },
     {
       title: "انتخاب خانه و مساحت مورد نظر",
       description:
         "خانه دلخواه خود را پیدا کنید و فقط به مقدار مورد نظرتان سرمایه‌گذاری کنید.",
-      icon: <FaMap className="w-8 h-8 text-blue-600" />,
+      icon: <FaMap className="w-8 h-8 text-[#2cc49b]" />,
     },
     {
       title: "پرداخت امن از طریق درگاه بانکی",
       description:
         "سرمایه‌گذاری شما از طریق درگاه بانکی انجام می‌شود و کاملاً امن است.",
-      icon: <FaCreditCard className="w-8 h-8 text-blue-600" />,
+      icon: <FaCreditCard className="w-8 h-8 text-[#2cc49b]" />,
     },
     {
       title: "دریافت سند دیجیتال مالکیت",
       description:
         "پس از خرید، سند دیجیتال مالکیت شما صادر می‌شود و تحت API دولتی ثبت می‌گردد.",
-      icon: <FaFileContract className="w-8 h-8 text-blue-600" />,
+      icon: <FaFileContract className="w-8 h-8 text-[#2cc49b]" />,
     },
   ];
 
