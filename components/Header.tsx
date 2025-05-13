@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -54,9 +52,14 @@ export default function Header() {
               چرا ما؟
             </button>
           </nav>
-          <button className="hidden md:block px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-md hover:bg-yellow-500 transition">
-            تماس با ما
-          </button>
+          <div className="flex items-center gap-4">
+            <button className="px-5 py-2 text-sm font-medium text-gray-700 border border-[#2cc49b] rounded-lg hover:text-[#2cc49b] transition duration-200">
+              ورود
+            </button>
+            <button className="px-5 py-2 text-sm font-semibold text-white bg-[#2cc49b] rounded-lg hover:bg-[#26a683] focus:outline-none focus:ring-2 focus:ring-[#2cc49b] focus:ring-opacity-50 transition duration-200 shadow-md hover:shadow-lg">
+              ثبت نام
+            </button>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
